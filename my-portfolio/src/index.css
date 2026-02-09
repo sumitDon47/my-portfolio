@@ -1,15 +1,351 @@
+/* ===== THEME VARIABLES ===== */
+:root {
+  --bg: #ffffff;
+  --text: #0f172a;
+  --subtext: #4b5563;
+  --card-bg: rgba(255, 255, 255, 0.6);
+  --border-color: rgba(0,0,0,0.1);
+  --primary: #2563eb;
+  --gradient: linear-gradient(90deg, #38bdf8, #a78bfa);
+}
+
+body.dark {
+  --bg: #020617;
+  --text: #e5e7eb;
+  --subtext: #94a3b8;
+  --card-bg: rgba(15, 23, 42, 0.6);
+  --border-color: rgba(255,255,255,0.08);
+  --primary: #38bdf8;
+  --gradient: linear-gradient(90deg, #38bdf8, #a78bfa);
+}
+
 body {
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #fff;
-  color: #111;
+  padding: 0;
 }
 
-a {
-  color: #0070f3;
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, sans-serif;
+  background: linear-gradient(135deg, #0f172a, #020617);
+  color: #e5e7eb;
+  line-height: 1.6;
+}
+
+/* ========== CONTAINER ========== */
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+  padding: 2rem 0;
+}
+
+/* ========== NAVBAR ========== */
+.nav {
+  padding: 16px 40px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #38bdf8;
+}
+
+/* Resume button */
+.resume-btn {
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  font-size: 14px;
   text-decoration: none;
+  transition: 0.2s;
 }
 
-a:hover {
-  text-decoration: underline;
+.resume-btn:hover {
+  background: #1d4ed8;
 }
+
+nav a {
+  color: #cbd5f5;
+  text-decoration: none;
+  margin-left: 1.5rem;
+  transition: 0.25s;
+}
+
+nav a:hover {
+  color: #38bdf8;
+}
+
+/* ========== HERO ========== */
+.hero {
+  text-align: center;
+  padding: 5rem 0 4rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(90deg, #38bdf8, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  margin-top: 1rem;
+  color: #94a3b8;
+}
+
+.hero .btn {
+  margin-top: 2rem;
+}
+
+/* ========== BUTTON ========== */
+.btn {
+  display: inline-block;
+  padding: 0.7rem 1.5rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #38bdf8, #6366f1);
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.25s;
+  box-shadow: 0 4px 20px rgba(56,189,248,0.3);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(56,189,248,0.5);
+}
+
+/* ========== SECTION ========== */
+.section {
+  padding: 4rem 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+  color: #f1f5f9;
+}
+
+/* ========== CARD GRID ========== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 14px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(56,189,248,0.4);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.card h3 {
+  margin-bottom: 0.5rem;
+  color: #38bdf8;
+}
+
+.card p {
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+/* ========== SKILLS ========== */
+.skill {
+  margin-bottom: 1rem;
+}
+
+.skill-name {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.skill-bar {
+  height: 8px;
+  border-radius: 999px;
+  background: #020617;
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #38bdf8, #6366f1);
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact-section {
+  padding: 5rem 2rem;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.contact-subtitle {
+  text-align: center;
+  color: var(--subtext);
+  margin-bottom: 3rem;
+  font-size: 1rem;
+}
+
+/* Cards */
+.contact-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.contact-card {
+  background: var(--card-bg);
+  border-radius: 14px;
+  padding: 2rem;
+  width: 220px;
+  text-align: center;
+  color: var(--text);
+  text-decoration: none;
+  transition: 0.3s;
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border-color);
+}
+
+.contact-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--primary);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+}
+
+.contact-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary);
+}
+
+.contact-card p {
+  font-size: 0.95rem;
+  color: var(--subtext);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  margin-top: 4rem;
+  padding: 1.5rem 0;
+  font-size: 0.9rem;
+  color: var(--subtext);
+  border-top: 1px solid var(--border-color);
+}
+
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  nav a {
+    margin-left: 1rem;
+  }
+}
+
+/* ===== THEME VARIABLES ===== */
+:root {
+  --bg: #ffffff;
+  --text: #0f172a;
+  --card: #f1f5f9;
+  --border: rgba(0,0,0,0.08);
+}
+
+body.dark {
+  --bg: #020617;
+  --text: #e5e7eb;
+  --card: rgba(15, 23, 42, 0.7);
+  --border: rgba(255,255,255,0.06);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+
+/* ===== TOGGLE SWITCH ===== */
+.theme-toggle {
+  width: 52px;
+  height: 28px;
+  border-radius: 999px;
+  background: #cbd5f5;
+  position: relative;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.theme-toggle::after {
+  content: "";
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  transition: 0.25s;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+body.dark .theme-toggle {
+  background: #38bdf8;
+}
+
+body.dark .theme-toggle::after {
+  left: 26px;
+}
+

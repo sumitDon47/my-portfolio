@@ -1,13 +1,45 @@
-function Navbar() {
+import { useEffect, useState } from "react";
+
+export default function Navbar() {
+  const [dark, setDark] = useState(false);
+
+  useEffect(() => {
+    const saved = localStorage.getItem("theme");
+    if (saved === "dark") {
+      document.body.classList.add("dark");
+      setDark(true);
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    document.body.classList.toggle("dark");
+    const isDark = document.body.classList.contains("dark");
+    setDark(isDark);
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+  };
+
   return (
-    <nav style={{ padding: "1rem 2rem", background: "#111", color: "#fff", display: "flex", justifyContent: "space-between" }}>
-      <h2>Sumit Sapkota</h2>
-      <div>
-        <a href="#projects" style={{ margin: "0 1rem" }}>Projects</a>
-        <a href="#contact" style={{ margin: "0 1rem" }}>Contact</a>
+    <nav className="nav">
+      <div className="nav-inner">
+        <h2 className="logo">Sumit</h2>
+
+        <div className="nav-right">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+
+          {/* Resume Download */}
+          <a href="/resume.pdf" download className="resume-btn">
+            Download Resume
+          </a>
+
+          {/* Theme Toggle */}
+          <div
+            className={`theme-toggle ${dark ? "active" : ""}`}
+            onClick={toggleTheme}
+          />
+        </div>
       </div>
     </nav>
-  )
+  );
 }
-
-export default Navbar

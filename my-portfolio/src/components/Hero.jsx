@@ -1,8 +1,9 @@
 function Hero() {
   return (
-    <section style={{ padding: "4rem 2rem", textAlign: "center", background: "#f0f0f0" }}>
-      <h1>Hello, I'm Sumit 👋</h1>
-      <p>React Developer | Learning & Building | Portfolio</p>
+    <section className="hero">
+      <h1>Hi, I'm Sumit Sapkota 👋</h1>
+      <p>Frontend Developer | React Learner | Passionate Builder</p>
+      <a href="#projects" className="btn">View My Work</a>
     </section>
   )
 }
