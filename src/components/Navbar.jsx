@@ -43,9 +43,9 @@ export default function Navbar() {
     <nav className={`nav ${scrolled ? 'nav-scrolled' : ''}`}>
       <div className="nav-inner">
         <a href="#" className="logo">
-          <span className="logo-bracket">{'<'}</span>
+          <span className="logo-bracket"></span>
           Sumit
-          <span className="logo-bracket">{'/>'}</span>
+          <span className="logo-bracket"></span>
         </a>
 
         <div className="nav-center">
