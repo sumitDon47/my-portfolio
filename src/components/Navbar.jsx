@@ -10,9 +10,11 @@ import { GITHUB_USERNAME } from "../hooks/useGitHubRepos";
 const RESUME_FILE = "/resume.pdf";
 
 const NAV_LINKS = [
-  { label: "About",    href: "#about",    num: "01" },
-  { label: "Projects", href: "#projects", num: "02" },
-  { label: "Contact",  href: "#contact",  num: "03" },
+  { label: "About",      href: "#about",      num: "01" },
+  { label: "Skills",     href: "#skills",     num: "02" },
+  { label: "Experience", href: "#experience", num: "03" },
+  { label: "Projects",   href: "#projects",   num: "04" },
+  { label: "Contact",    href: "#contact",    num: "05" },
 ];
 
 // ── Sun icon (light mode indicator) ──────────────────────────
@@ -71,7 +73,7 @@ export default function Navbar({ isDark, onToggleTheme }) {
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 20);
-      const sections = ["about", "projects", "contact"];
+      const sections = ["about", "skills", "experience", "projects", "contact"];
       for (const id of [...sections].reverse()) {
         const el = document.getElementById(id);
         if (el && window.scrollY >= el.offsetTop - 120) { setActive(id); break; }

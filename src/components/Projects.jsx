@@ -178,7 +178,7 @@ export default function Projects() {
 
         {/* Heading */}
         <div style={{ textAlign:"center", marginBottom:"52px" }}>
-          <span className="section-label">02. Projects</span>
+          <span className="section-label">04. Projects</span>
           <h2 className="gradient-text section-title" style={{ marginBottom:"16px" }}>
             Things I've Built
           </h2>

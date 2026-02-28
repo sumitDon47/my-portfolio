@@ -126,6 +126,31 @@ html.light body::before { opacity: 0; }
   from { transform: scale(0.5) rotate(-20deg); opacity: 0; }
   to   { transform: scale(1)   rotate(0deg);   opacity: 1; }
 }
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(124,58,237,0.2); }
+  50%      { box-shadow: 0 0 40px rgba(124,58,237,0.4); }
+}
 
 /* ─── Utility classes ───────────────────────────────────────── */
 .section-label {
@@ -149,4 +174,56 @@ html.light body::before { opacity: 0; }
   font-weight: 800;
   letter-spacing: -0.035em;
   line-height: 1.1;
+}
+
+/* ─── Section dividers ──────────────────────────────────────── */
+section {
+  position: relative;
+}
+
+/* ─── Hero stats responsive ─────────────────────────────────── */
+@media (max-width: 520px) {
+  .hero-stats {
+    flex-wrap: wrap !important;
+    gap: 16px !important;
+    padding: 20px !important;
+  }
+}
+
+/* ─── Smooth section transitions ────────────────────────────── */
+section + section {
+  border-top: 1px solid var(--border);
+}
+
+/* ─── Focus styles for accessibility ────────────────────────── */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--purple);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ─── Button hover glow ─────────────────────────────────────── */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; right: 0; bottom: 0;
+  width: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.1),
+    transparent
+  );
+  animation: btnShine 3s ease-in-out infinite;
+}
+@keyframes btnShine {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
